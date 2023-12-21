@@ -13,6 +13,7 @@ import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import{ AuthContext } from "../Components/Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 const Register = () => {
     const {createUser, userUpdate} = useContext(AuthContext)
@@ -28,6 +29,14 @@ const Register = () => {
         userUpdate(name)
         .then(result => {
             console.log(result.user);
+            Swal.fire({
+                title: "Good job!",
+                text: "Successfully registered",
+                icon: "success",
+                confirmButtonColor: "rgb(129, 129, 208)",
+                iconColor: "rgb(129, 129, 208)"
+                
+              });
            
          })
          .catch(error => {

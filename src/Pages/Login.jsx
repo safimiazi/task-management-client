@@ -13,11 +13,13 @@ import Lottie from "lottie-react";
 import { Link, useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../Components/Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
     const { signInWithPassEmail } = useContext(AuthContext)
     const navigate = useNavigate()
+    
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;
@@ -26,6 +28,15 @@ const Login = () => {
         signInWithPassEmail(email, password)
             .then(result => {
                 console.log(result.user);
+                Swal.fire({
+                    title: "Good job!",
+                    text: "Successfully Login",
+                    icon: "success",
+                    confirmButtonColor: "rgb(129, 129, 208)",
+                    iconColor: "rgb(129, 129, 208)"
+                    
+                  });
+                  
                 navigate("/dashboard")
             })
             .catch(error => {
