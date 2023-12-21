@@ -5,8 +5,11 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import router from './Components/Router/Router.jsx';
+import { ThemeProvider } from '@material-tailwind/react';
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
+    <ThemeProvider>
       <RouterProvider router={router} />
+    </ThemeProvider>
   </React.StrictMode>,
 )
