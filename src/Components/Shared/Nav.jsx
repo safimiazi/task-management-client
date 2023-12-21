@@ -28,12 +28,12 @@ export function StickyNavbar() {
                 className="p-1 font-normal"
             >
                 <NavLink
-                    to="/dashboard"
+                    to="/"
                     className={({ isActive, isPending }) =>
                         isPending ? "pending" : isActive ? "underline" : ""
                     }
                 >
-                    Dashboard
+                    Home
                 </NavLink>
             </Typography>
             <Typography
@@ -42,30 +42,18 @@ export function StickyNavbar() {
                 color="black"
                 className="p-1 font-normal"
             >
-                <a href="#" className="flex items-center">
-                    Account
-                </a>
+                <NavLink
+                    to="/dashboard"
+                    className={({ isActive, isPending }) =>
+                        isPending ? "pending" : isActive ? "underline" : ""
+                    }
+                >
+                    Dashboard
+                </NavLink>
             </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="black"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Blocks
-                </a>
-            </Typography>
-            <Typography
-                as="li"
-                variant="small"
-                color="black"
-                className="p-1 font-normal"
-            >
-                <a href="#" className="flex items-center">
-                    Docs
-                </a>
-            </Typography>
+           
+           
+           
         </ul>
     );
 
