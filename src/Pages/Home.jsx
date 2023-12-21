@@ -1,9 +1,9 @@
-import React from 'react';
+import Banner from "../Components/Banner";
 
 const Home = () => {
     return (
-        <div className='text-4xl'>
-           ddd 
+        <div>
+            <Banner />
         </div>
     );
 };
