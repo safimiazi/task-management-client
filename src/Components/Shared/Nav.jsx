@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
     Navbar,
     MobileNav,
@@ -8,9 +8,17 @@ import {
 
 } from "@material-tailwind/react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 export function StickyNavbar() {
+    const { user, logOut } = useContext(AuthContext)
     const [openNav, setOpenNav] = React.useState(false);
+
+
+    const handleLogOut = () => {
+        logOut()
+    }
+
 
     React.useEffect(() => {
         window.addEventListener(
@@ -51,9 +59,9 @@ export function StickyNavbar() {
                     Dashboard
                 </NavLink>
             </Typography>
-           
-           
-           
+
+
+
         </ul>
     );
 
@@ -80,15 +88,25 @@ export function StickyNavbar() {
                                 <span>Register</span>
                             </Button>
                         </Link>
-                        <Link to="/login">
-                            <Button
-                                variant="gradient"
-                                size="sm"
-                                className="hidden lg:inline-block"
-                            >
-                                <span>Sign in</span>
-                            </Button>
-                        </Link>
+                        {
+                            user ? <Link onClick={handleLogOut}>
+                                <Button
+                                    variant="gradient"
+                                    size="sm"
+                                    className="hidden lg:inline-block"
+                                >
+                                    <span>Sign Out</span>
+                                </Button>
+                            </Link> : <Link to="/login">
+                                <Button
+                                    variant="gradient"
+                                    size="sm"
+                                    className="hidden lg:inline-block"
+                                >
+                                    <span>Sign in</span>
+                                </Button>
+                            </Link>
+                        }
                     </div>
                     <IconButton
                         variant="text"
