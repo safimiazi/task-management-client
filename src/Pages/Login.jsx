@@ -11,15 +11,19 @@ import {
 import loginAnimation from "../assets/login.json"
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../Components/Provider/AuthProvider";
 
 
 const Login = () => {
-
+const {signInWithPassEmail} = useContext(AuthContext)
     const handleLogin = (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value
+        signInWithPassEmail(email, password)
+        .then()
     }
     return (
         <div className=" bg-blue-200 pt-10 md:pt-0 md:h-[665px] grid grid-cols-1 md:grid-cols-2 items-center justify-between md:gap-4 p-4">
