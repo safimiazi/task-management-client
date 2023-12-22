@@ -5,6 +5,13 @@ import Swal from 'sweetalert2';
 import { clear } from 'localforage';
 import { useQuery } from '@tanstack/react-query';
 import useAllData from '../../Hooks/useAllData/useAllData';
+import {
+    Card,
+    CardBody,
+    CardFooter,
+    Typography,
+
+} from "@material-tailwind/react";
 
 const DashDetails = () => {
     const [todoData, refetch, isLoading] = useAllData();
@@ -36,6 +43,7 @@ const DashDetails = () => {
                 console.log(res);
                 clear(form)
                 if (res.ok == true) {
+                    refetch()
                     Swal.fire({
                         title: "Good job!",
                         text: "Successfully task added",
@@ -46,17 +54,17 @@ const DashDetails = () => {
                     });
                 }
 
-  
+
             })
             .catch(error => {
                 console.log(error.message);
             })
 
 
-           
+
     }
 
-  
+
     return (
         <div className='min-h-screen'>
             <div className='py-10 text-center'>
@@ -100,7 +108,19 @@ const DashDetails = () => {
                     </div>
                     <div>
                         {
-todoData?.map(singleData => )
+                            todoData?.map(singleData => <Card key={singleData._id} className="mt-6 w-96">
+                                <CardBody>
+                                    <Typography variant="h5" color="blue-gray" className="mb-2">
+                                        {singleData.title}
+                                    </Typography>
+                                    <Typography>
+                                        {singleData.description}
+                                    </Typography>
+                                </CardBody>
+                                <CardFooter className="pt-0">
+                                    <Button>Read More</Button>
+                                </CardFooter>
+                            </Card>)
                         }
                     </div>
                 </div>
