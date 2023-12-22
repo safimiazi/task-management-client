@@ -89,12 +89,12 @@ const DashDetails = () => {
                     </div>
                 </div>
                 <div>
-                    <div className='p-3 bg-blue-400'>
+                    <div className='p-3 bg-blue-400 rounded-full'>
                         <h1 className='text-4xl'>lists of to-do</h1>
                     </div>
                 </div>
                 <div>
-                    <div className='p-3 bg-blue-700'>
+                    <div className='p-3 bg-blue-700 rounded-full'>
                         <h1 className='text-4xl'>lists of to-do</h1>
                     </div>
                 </div>
