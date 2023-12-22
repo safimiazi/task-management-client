@@ -38,8 +38,8 @@ const DashDetails = () => {
                         icon: "success",
                         confirmButtonColor: "rgb(129, 129, 208)",
                         iconColor: "rgb(129, 129, 208)"
-                        
-                      });
+
+                    });
                 }
             })
             .catch(error => {
@@ -78,6 +78,27 @@ const DashDetails = () => {
                         </div>
                     </div>
                 </form>
+            </div>
+
+
+            {/* another section */}
+            <div className='grid md:grid-cols-3 gap-2'>
+                <div>
+                    <div className='p-3 bg-blue-200 rounded-full'>
+                        <h1 className='text-4xl'>lists of to-do</h1>
+                    </div>
+                </div>
+                <div>
+                    <div className='p-3 bg-blue-400'>
+                        <h1 className='text-4xl'>lists of to-do</h1>
+                    </div>
+                </div>
+                <div>
+                    <div className='p-3 bg-blue-700'>
+                        <h1 className='text-4xl'>lists of to-do</h1>
+                    </div>
+                </div>
+
             </div>
         </div>
     );
