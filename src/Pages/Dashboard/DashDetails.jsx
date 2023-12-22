@@ -3,8 +3,12 @@ import React, { useContext, useState } from 'react';
 import { AuthContext } from "../../Components/Provider/AuthProvider";
 import Swal from 'sweetalert2';
 import { clear } from 'localforage';
+import { useQuery } from '@tanstack/react-query';
+import useAllData from '../../Hooks/useAllData/useAllData';
 
 const DashDetails = () => {
+    const [todoData, refetch, isLoading] = useAllData();
+
     const { user } = useContext(AuthContext)
     const [priority, setPriority] = useState()
     const handleTaskSubmit = (e) => {
@@ -41,11 +45,18 @@ const DashDetails = () => {
 
                     });
                 }
+
+  
             })
             .catch(error => {
                 console.log(error.message);
             })
+
+
+           
     }
+
+  
     return (
         <div className='min-h-screen'>
             <div className='py-10 text-center'>
@@ -86,6 +97,11 @@ const DashDetails = () => {
                 <div>
                     <div className='p-3 bg-blue-200 rounded-full text-center'>
                         <h1 className='text-4xl'>lists of to-do</h1>
+                    </div>
+                    <div>
+                        {
+todoData?.map(singleData => )
+                        }
                     </div>
                 </div>
                 <div>
