@@ -65,6 +65,17 @@ const DashDetails = () => {
     }
 
 
+const handleDelete = (id) => {
+console.log(id);
+
+
+}
+
+
+
+const handleUpdate = (id) => {
+console.log(id);
+}
     return (
         <div className='min-h-screen'>
             <div className='py-10 text-center'>
@@ -116,13 +127,19 @@ const DashDetails = () => {
                                     <Typography>
                                         {singleData.description}
                                     </Typography>
+                                    <Typography>
+                                        {singleData.data}
+                                    </Typography>
+                                    <Typography>
+                                    priority: {singleData.priority}
+                                    </Typography>
                                 </CardBody>
                                 <div className='flex'>
                                 <CardFooter className="pt-0">
-                                    <Button>delete</Button>
+                                    <Button onClick={()=> handleDelete(singleData?._id)}>delete</Button>
                                 </CardFooter>
                                 <CardFooter className="pt-0 ">
-                                    <Button>update</Button>
+                                    <Button onClick={()=> handleUpdate(singleData?._id)}>update</Button>
                                 </CardFooter>
                                 </div>
                             </Card>)
