@@ -12,6 +12,7 @@ import {
     Typography,
 
 } from "@material-tailwind/react";
+import axios from 'axios';
 
 const DashDetails = () => {
     const [todoData, refetch, isLoading] = useAllData();
@@ -65,17 +66,24 @@ const DashDetails = () => {
     }
 
 
-const handleDelete = (id) => {
-console.log(id);
+    const handleDelete = (id) => {
+        console.log(id);
+        axios.delete(`http://localhost:5000/delete-task/${id}`)
+            .then(result => {
+                console.log(result);
+                refetch()
+            })
+            .catch(error => {
+                console.log(error.message);
+            })
+
+    }
 
 
-}
 
-
-
-const handleUpdate = (id) => {
-console.log(id);
-}
+    const handleUpdate = (id) => {
+        console.log(id);
+    }
     return (
         <div className='min-h-screen'>
             <div className='py-10 text-center'>
@@ -131,16 +139,16 @@ console.log(id);
                                         {singleData.data}
                                     </Typography>
                                     <Typography>
-                                    priority: {singleData.priority}
+                                        priority: {singleData.priority}
                                     </Typography>
                                 </CardBody>
                                 <div className='flex'>
-                                <CardFooter className="pt-0">
-                                    <Button onClick={()=> handleDelete(singleData?._id)}>delete</Button>
-                                </CardFooter>
-                                <CardFooter className="pt-0 ">
-                                    <Button onClick={()=> handleUpdate(singleData?._id)}>update</Button>
-                                </CardFooter>
+                                    <CardFooter className="pt-0">
+                                        <Button onClick={() => handleDelete(singleData?._id)}>delete</Button>
+                                    </CardFooter>
+                                    <CardFooter className="pt-0 ">
+                                        <Button onClick={() => handleUpdate(singleData?._id)}>update</Button>
+                                    </CardFooter>
                                 </div>
                             </Card>)
                         }
