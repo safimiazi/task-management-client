@@ -1,8 +1,9 @@
 import { Button, Input } from '@material-tailwind/react';
-import React, { useState } from 'react';
-import { json } from 'react-router-dom';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from "../../Components/Provider/AuthProvider";
 
 const DashDetails = () => {
+    const {user}  = useContext(AuthContext)
 const [priority, setPriority] = useState()
     const handleTaskSubmit = (e) => {
         e.preventDefault()
@@ -17,7 +18,8 @@ const [priority, setPriority] = useState()
             date: date,
             priority: priority
         }
-        fetch("http://localhost:5000/task",{
+        
+        fetch(`http://localhost:5000/task?email=${user.email}`,{
             method: "POST",
             headers: {
             "content-type":"application/json"
