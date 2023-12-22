@@ -1,5 +1,6 @@
 import { Button, Input } from '@material-tailwind/react';
 import React, { useState } from 'react';
+import { json } from 'react-router-dom';
 
 const DashDetails = () => {
 const [priority, setPriority] = useState()
@@ -10,7 +11,19 @@ const [priority, setPriority] = useState()
         const description = form.description.value;
         const date = form.date.value;
         console.log(title, description, date, priority);
-        
+        const data = {
+            title:title,
+            description: description,
+            date: date,
+            priority: priority
+        }
+        fetch("http://localhost:5000/task",{
+            method: "POST",
+            headers: {
+            "content-type":"application/json"
+            },
+            body: JSON.stringify(data)
+        })
     }
     return (
         <div className='min-h-screen'>
