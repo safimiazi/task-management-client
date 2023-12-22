@@ -108,7 +108,7 @@ const DashDetails = () => {
                     </div>
                     <div>
                         {
-                            todoData?.map(singleData => <Card key={singleData._id} className="mt-6 w-96">
+                            todoData?.map(singleData => <Card key={singleData._id} className="mt-6 w-96  bg-blue-200">
                                 <CardBody>
                                     <Typography variant="h5" color="blue-gray" className="mb-2">
                                         {singleData.title}
@@ -117,9 +117,14 @@ const DashDetails = () => {
                                         {singleData.description}
                                     </Typography>
                                 </CardBody>
+                                <div className='flex'>
                                 <CardFooter className="pt-0">
-                                    <Button>Read More</Button>
+                                    <Button>delete</Button>
                                 </CardFooter>
+                                <CardFooter className="pt-0 ">
+                                    <Button>update</Button>
+                                </CardFooter>
+                                </div>
                             </Card>)
                         }
                     </div>
