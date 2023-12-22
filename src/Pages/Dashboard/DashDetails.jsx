@@ -84,17 +84,17 @@ const DashDetails = () => {
             {/* another section */}
             <div className='grid md:grid-cols-3 gap-2'>
                 <div>
-                    <div className='p-3 bg-blue-200 rounded-full'>
+                    <div className='p-3 bg-blue-200 rounded-full text-center'>
                         <h1 className='text-4xl'>lists of to-do</h1>
                     </div>
                 </div>
                 <div>
-                    <div className='p-3 bg-blue-400 rounded-full'>
+                    <div className='p-3 bg-blue-400 rounded-full text-center'>
                         <h1 className='text-4xl'>lists of to-do</h1>
                     </div>
                 </div>
                 <div>
-                    <div className='p-3 bg-blue-700 rounded-full'>
+                    <div className='p-3 bg-blue-700 rounded-full text-center'>
                         <h1 className='text-4xl'>lists of to-do</h1>
                     </div>
                 </div>
